@@ -1,0 +1,31 @@
+include ./colors
+cache-file ~/.config/newsboat/cache.db
+
+browser "w3m %u"
+notify-always yes
+notify-program ""
+notify-beep yes
+datetime-format "%d %b %Y"
+text-width 72
+
+# keys
+unbind-key C # mark all feeds read
+unbind-key ^D # mark all to delete
+bind-key g home
+bind-key G end
+bind-key l open
+bind-key h quit
+bind-key ^B pageup
+bind-key ^F pagedown
+bind-key j down article
+bind-key k up article
+bind-key j down feedlist
+bind-key k up feedlist
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+
+macro v set browser "mpv --really-quiet %u & disown && exit" ; open-in-browser ; set browser "w3m %u" # {,+v}
+macro w set browser "$BROWSER %u 2>/dev/null &" ; open-in-browser ; set browser "w3m %u" # {,+w}
+

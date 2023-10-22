@@ -1,0 +1,43 @@
+# comment
+
+keymap H BACK
+keymap ? HELP
+
+keymap gg BEGIN
+keymap G END
+keymap h MOVE_LEFT
+keymap j MOVE_DOWN
+keymap k MOVE_UP
+keymap l MOVE_RIGHT
+keymap 0 LINE_BEGIN
+keymap $ LINE_END
+keymap w NEXT_WORD
+keymap b PREV_WORD
+keymap C-f NEXT_PAGE
+keymap C-b PREV_PAGE
+keymap C-e UP
+keymap C-y DOWN
+
+keymap C-n NEXT_LINK
+keymap C-p PREV_LINK
+
+keymap / ISEARCH
+
+keymap u UNDO
+keymap C-r REDO
+
+keymap f MOVE_LIST_MENU
+ 
+keymap t NEW_TAB
+keymap T TAB_MENU
+keymap gt NEXT_TAB
+keymap gT PREV_TAB
+keymap x CLOSE_TAB
+
+keymap V VIEW_IMAGE
+keymap v VIEW
+
+keymap :: COMMAND
+
+keymap ZZ ABORT
+keymap Q NULL

@@ -1,0 +1,9 @@
+[user]
+    name = user
+    email = user@debian
+[credential]
+    helper = cache
+[core]
+    editor = vim
+[init]
+	defaultBranch = master

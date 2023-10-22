@@ -1,0 +1,25 @@
+# . /etc/X11/Xsession -- Debian
+# . /etc/X11/xinit/Xsession -- Fedora
+
+#[ -f $HOME/.config/X11/Xresources ] && xrdb -merge $HOME/.config/X11/Xresources
+
+# are they upperrcase on Fedora?
+SYSRESOURCES=/etc/X11/Xresources
+USRRESOURCES=$HOME/.config/X11/Xresources
+
+if [ -f "$SYSRESOURCES" ]; then
+    xrdb -merge "$SYSRESOURCES"
+fi
+
+if [ -f "$USRRESOURCES" ]; then
+    xrdb -merge "$USRRESOURCES"
+fi
+
+#xset -b # disable bell
+xset r rate 200 50 & # delay, repeat rate
+setxkbmap -option caps:escape -option altwin:menu_win -option grp:alt_shift_toggle us,ru &
+
+#dbus-update-activation-environment --systemd DBUS_SESSION_BUS_ADDRESS DISPLAY XAUTHORITY & # fixes firefox and possibly other gtk apps slow startup; see https://github.com/flatpak/xdg-desktop-portal-gtk/issues/72
+
+# then source this file in ~/.xinitrc and add 'exec (your wm/de)' after that
+

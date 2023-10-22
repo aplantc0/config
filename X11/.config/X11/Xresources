@@ -1,0 +1,112 @@
+! per system conditionals: define hostnames with `SRVR_name` (or `CLNT_name` for user); separate setup for different machines with `ifndef`, `ifdef` & `else` statements. See man xrdb
+! If you are limited to monospaced fonts (because of your terminal, etc) then pick a font with the 'Mono' suffix.
+! This denotes that the Nerd Font glyphs will be monospaced not necessarily that the entire font will be monospaced
+! https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/JetBrainsMono/Ligatures/Medium/complete
+! https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/Iosevka/Medium/complete
+
+#define monospace xft:Monospace:antialias=true:autohint=true
+#define terminess xft:Terminess Nerd Font Mono:style=Regular:antialias=true:autohint=true
+#define terminus  xft:Terminus:style=Regular:antialias=true:autohint=true
+#define jetbrains xft:JetBrainsMono Nerd Font Mono:style=Medium:antialias=true:autohint=true
+!#define jetbrains xft:JetBrainsMono:style=Regular:antialias=true:autohint=true
+#define iosevka   xft:Iosevka Nerd Font Mono:style=Medium:antialias=true:autohint=true
+
+!URxvt.foreground: White
+!URxvt.background: Black
+*.scrollBar: false
+*.selectToClipboard: true
+
+! 120x32
+*.geometry: 100x28
+
+! XTerm
+XTerm.termName: xterm-256color
+XTerm.vt100.locale: false
+XTerm.vt100.utf8: true
+
+! Perls
+URxvt.perl-lib: .config/urxvt/ext
+URxvt.perl-ext-common: keyboard-select,resize-font,bell-command,url-select
+
+!! keyboard-select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.keyboard-select.clipboard: true
+
+!! resize-font
+URxvt.resize-font.step: 1
+URxvt.keysym.C-minus: resize-font:smaller
+URxvt.keysym.C-plus: resize-font:bigger
+URxvt.keysym.C-equal: resize-font:reset
+URxvt.keysym.C-question: resize-font:show
+
+!! bell-command
+URxvt.bell-command: notify-send "urxvt" "bell!"
+
+!! url-select
+URxvt.keysym.C-M-u: perl:url-select:select_next
+URxvt.url-select.autocopy: false
+URvxt.url-select.button: 2
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+
+#ifdef SRVR_home
+
+*.font: jetbrains:pixelsize=15
+!*.letterSpace: -1
+
+#include "./colors/monokai"
+
+!*.cursorBlink: true
+*.cursorColor: #f92672
+
+! Fake transparency
+!URxvt.transparent: true
+!URxvt.shading: 50
+
+! True transparency
+URxvt*depth: 32
+URxvt*background: [90]#171320
+
+# endif
+
+#ifdef SRVR_work
+
+*.font: terminess:pixelsize=18
+!*.letterSpace: -1
+
+#include "./colors/monokai"
+
+*.cursorBlink: true
+*.cursorColor: #f92672
+
+! Fake transparency
+URxvt.transparent: true
+URxvt.shading: 35
+
+! True transparency
+!URxvt*depth: 32
+!URxvt*background: [95]#221e2d
+
+#endif
+
+#ifdef SRVR_work2
+
+*.font: jetbrains:pixelsize=14
+*.letterSpace: -1
+
+#include "./colors/solarized"
+!#include "./colors/solarized_l"
+
+*.cursorBlink: true
+*.cursorColor: #f92672
+
+! Fake transparency
+!URxvt.transparent: true
+URxvt.shading: 20
+
+! True transparency
+!URxvt*depth: 32
+!URxvt*background: [95]#221e2d
+
+#endif

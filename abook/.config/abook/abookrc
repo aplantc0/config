@@ -1,0 +1,12 @@
+set preserve_fields=all # preserve any completely unknown field
+set address_style=uk # Address style [eu|us|uk]
+set sort_field=email # when press F
+
+set index_format=" {name:22} {email:40} {phone:15|workphone|mobile}" # phone 15
+
+set show_cursor=true
+set use_colors=true
+
+set mutt_command=neomutt
+set www_command=w3m
+

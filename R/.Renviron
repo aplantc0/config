@@ -1,0 +1,8 @@
+# /usr/lib/R/etc/Renviron
+
+#R_LIBS_USER='~/.local/lib/R/x86_64-pc-linux-gnu-library/4.0'
+R_LIBS_USER='~/.local/lib/R/%p/%v'
+
+R_PAPERSIZE_USER='a4'
+
+#R_PDFVIEWER=${R_PDFVIEWER-'/usr/bin/xdg-open'}

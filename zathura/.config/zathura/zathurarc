@@ -1,0 +1,46 @@
+# set
+#set adjust-open "best-fit"
+set adjust-open "width"
+set window-title-home-tilde true
+set window-title-page true
+set statusbar-home-tilde true
+set statusbar-basename true
+set guioptions "s"
+set sandbox none
+set scroll-step 30
+set zoom-step 10
+set incremental-search true
+set scroll-page-aware true
+set selection-clipboard clipboard
+set page-padding 2
+
+# color
+include zathura-gruvbox-dark-hard
+set recolor false # start inverted
+set recolor-keephue true
+set recolor-lightcolor "#0d1117" # when dark theme
+set highlight-transparency 0.3
+
+# map
+map g goto top
+map G goto bottom
+map <C-y> scroll up
+map <C-e> scroll down
+map u scroll half-up
+map d scroll half-down
+map f scroll full-down
+map b scroll full-up
+map <C-u> scroll page-top
+map <C-d> scroll page-bottom
+map H adjust_window best-fit
+map W adjust_window width
+map K zoom in
+map J zoom out
+map R rotate rotate-ccw
+map L rotate rotate-cw
+map i recolor
+map r reload
+map B toggle_statusbar
+map D toggle_page_mode
+map F follow
+map <C-P> print

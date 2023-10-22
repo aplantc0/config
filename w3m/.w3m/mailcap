@@ -1,0 +1,3 @@
+image/*; sxiv %s
+application/xhtml+xml; cat %s; x-htmloutput
+application/pdf; zathura %s
